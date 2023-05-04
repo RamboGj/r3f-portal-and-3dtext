@@ -3,6 +3,21 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /\.(glsl|frag|vert)$/,
+      use: [
+        {
+          loader: 'raw-loader',
+          options: {
+            esModule: false,
+          },
+        },
+      ],
+    })
+
+    return config
+  },
 }
 
 module.exports = nextConfig

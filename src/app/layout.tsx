@@ -1,3 +1,4 @@
+import React from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -15,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} absolute top-0 left-0 h-screen max-w-screen w-full`}
+      >
+        {children}
+      </body>
     </html>
   )
 }
